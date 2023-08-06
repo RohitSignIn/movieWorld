@@ -1,0 +1,18 @@
+#top_container{
+    background: url("https://images2.alphacoders.com/724/724132.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top !important;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#bg_layer{
+    width: 100%;
+    height: 10vh;
+}
+
+#lineBreak{
+    margin-top: 2rem;
+}

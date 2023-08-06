@@ -1,0 +1,15 @@
+#cards{
+    margin-left: 1rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.loader{
+    margin-left: 50%;
+    margin-top: 10%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
