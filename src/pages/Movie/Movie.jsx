@@ -1,41 +1,18 @@
 import "./Movie.css"
-import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { ClipLoader } from "react-spinners";
+import { useState } from "react";
+import useSearchById from "../../hooks/useSearchById";
+import Loader from "../../components/Loader/Loader";
 
 const Movie = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState();
-  const {id} = useParams();
 
-  useEffect(() => {
-    axios.get(`https://www.omdbapi.com/?apikey=d781c3e1&i=${id}`).then((res) => {
-      setData(res.data)
-      setLoading(false)
-    });
-  }, [id]);
-
-
-  if(!data){
-    return (
-        <>
-        <div className="loader">
-        <ClipLoader
-            color={"#ffffff"}
-            loading={loading}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-            />
-        </div>
-        </>
-      )
-    }
+  useSearchById({setData, setLoading})
 
   return (
     <>
+    { !data && <Loader loading={loading} />}
     {
       data && <div id="mov_card_con">
         <div>
@@ -59,8 +36,8 @@ const Movie = () => {
           </div>
         </div>
       </div>
-    }
-    </>
+    }   
+  </>
   )
 }
 

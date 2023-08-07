@@ -34,12 +34,4 @@
 #mov_card_con h1{
     color: #fff;
     letter-spacing: 5px;
-}
-
-.loader{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    z-index: 1000;
-}
+};

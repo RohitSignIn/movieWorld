@@ -1,16 +1,14 @@
-const Search = (search, type="", year="", plot="", page="") => {
+const Search = (search, type, year, page) => {
     
     let url = `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&s=${search}`;
     
-    if(type != ""){
+    if(type){
         // movies, series, episode
-        url += `&type${type}`;
-
-    }else if(year != ""){
-        url += `&y${year}`;
-
-    }else if(plot != ""){
-        url += `&page${page}`;
+        url += `&type=${type}`;
+    }else if(year){
+        url += `&y=${year}`;
+    }else if(page){
+        url += `&page=${page}`;
     }
     
     return url;

@@ -75,7 +75,7 @@ nav > div:nth-child(3) > div{
     position: absolute;
     /* background-color: rgba(0, 0, 0, 0.6); */
     /* background-attachment: fixed; */
-    visibility: hidden;
+    display: none;
     top: 55px;
     width: 100%;
     max-height: 300px;
