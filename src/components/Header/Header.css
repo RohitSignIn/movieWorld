@@ -1,6 +1,6 @@
 nav::after,
 #search_list::after {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--bgColor);
 backdrop-filter: blur(12px);
 content: "";
 display: block;
@@ -21,7 +21,7 @@ nav{
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    color: #fff;
+    color: var(--fontColor);
     font-family: 'Courier New', Courier, monospace;
     z-index: 1;
 }
@@ -32,7 +32,7 @@ nav > div:nth-child(1){
 
 nav > div:nth-child(1) > h1 > a{
     text-decoration: none;
-    color: #fff;
+    color: var(--fontColor);
 }
 
 nav > div:nth-child(2){
@@ -55,9 +55,9 @@ nav > div:nth-child(2) > input{
     font-size: 1.1rem;
     border: none;
     outline: none;
-    color: grey;
+    color: var(--fontColor2);
     background: transparent;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--fontColor);
 }
 
 nav > div:nth-child(3){
@@ -95,6 +95,9 @@ nav > div:nth-child(3) > div{
 }
 
 #search_list > ul > li:hover{
-    background-color: rgba(2, 2, 2, 0.6);    
+    background-color: var(--bgColor2);    
 }
 
+#theme-mode{
+    cursor: pointer;
+}

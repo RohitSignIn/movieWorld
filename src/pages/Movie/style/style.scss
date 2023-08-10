@@ -1,11 +1,42 @@
+#mov_card_con{
+    padding: 2rem;
+    background-color: var(--bgColor);
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    color: var(--fontColor);
+    flex-wrap: wrap;
+    gap: 2rem;
+    h1{
+        color: var(--fontColor);
+        letter-spacing: 5px;
+    };
+    .oth_details{
+        .genre{
+            margin: 1rem 0 0.8rem 0;
+            span{
+                background-color: var(--fontColor);
+                color: var(--bgColor);
+                font-weight: 600;
+                border-radius: 10px;
+                padding: 0.3rem 1rem;
+                cursor: pointer;
+            }
+            span:not(:nth-child(1)){
+                margin-left: 1rem;
+            }
+        }
 
-$card_width: 230px;
-$card_height: 280px;
+    }
+}
+
+$card_width: 300px;
+$card_height: 380px;
 $card_detail_bg: var(--card_bg);
 $card_detail_blur: 8px;
 $card_border_radius: 10px;
 
-.card{
+#movie_card{
     position: relative;
     width: $card_width;
     height: $card_height;
@@ -51,4 +82,5 @@ $card_border_radius: 10px;
         font-weight: 300;
         color: var(--fontColor);
     }
+
 }

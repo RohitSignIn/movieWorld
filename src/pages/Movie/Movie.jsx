@@ -1,7 +1,9 @@
-import "./Movie.css"
 import { useState } from "react";
 import useSearchById from "../../hooks/useSearchById";
 import Loader from "../../components/Loader/Loader";
+import '@smastrom/react-rating/style.css';
+import RatingComp from "../../components/Rating/RatingComp";
+import "./style/style.css"
 
 const Movie = () => {
 
@@ -16,21 +18,30 @@ const Movie = () => {
     {
       data && <div id="mov_card_con">
         <div>
-          <section id="movie_card">
-              <div>
-                  <img src={data.Poster} alt={data.Title} />
-              </div>
-              <div>
-                <p>{data.Title}</p>
-              </div>
-          </section>
+        <div id="movie_card" title={data.Title} >
+            <img src={data.Poster}
+                alt={data.Title} />
+            <div className="card_detail">
+                <p className="card_h">{data.Title.length > 24 ? `${data.Title.substring(0, 24)}...` : data.Title}</p>
+                <p className="card_t">{data.Runtime}</p>
+            </div>
         </div>
-        <div>
+        </div>
+        <div className="oth_details">
           <h1>{data.Title}</h1>
-          <p>Year: {data.Year}</p>
-          <br />
+          
+          <RatingComp rating={data.imdbRating} />
+
+          <p>Released, {data.Released}</p>
+          <div className="genre">
+          {
+            data.Genre.split(",").map((elem) => {
+              return <span key={elem}>{elem}</span>
+            })
+          }
+          </div>
           <div>
-            <p>Director: {data.Director}</p>
+            
             <br />
             <p>{data.Plot}</p>
           </div>

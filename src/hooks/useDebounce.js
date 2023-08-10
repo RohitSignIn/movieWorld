@@ -1,4 +1,4 @@
-function useDebounce(callback, delay=500){
+const useDebounce = (callback, delay=500) => {
     let timerId;
     return (...args) => {
         clearTimeout(timerId);

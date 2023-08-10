@@ -6,7 +6,7 @@ const useSearchById = ({setData, setLoading}) => {
     const {id} = useParams();
     useEffect(() => {
 
-        axios.get(`https://www.omdbapi.com/?apikey=d781c3e1&i=${id}`).then((res) => {
+        axios.get(`https://www.omdbapi.com/?apikey=d781c3e1&i=${id}&plot=full`).then((res) => {
             setData(res.data)
             setLoading(false)
         });

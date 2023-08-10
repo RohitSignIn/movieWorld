@@ -3,7 +3,7 @@ import Search from "../APIs/searchAPI"
 import movieData from "../context"
 import axios from "axios"
 
-function useSearch(){
+const useSearch = () => {
   const {setData} = useContext(movieData)
 
   return (...args) => {
