@@ -9,6 +9,10 @@
 .card:hover {
   transform: scale(1.05);
 }
+.card > span {
+  width: inherit;
+  height: inherit;
+}
 .card img {
   width: 100%;
   height: 100%;

@@ -38,6 +38,10 @@
 #movie_card:hover {
   transform: scale(1.05);
 }
+#movie_card > span {
+  width: inherit;
+  height: inherit;
+}
 #movie_card img {
   width: 100%;
   height: 100%;

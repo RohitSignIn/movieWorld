@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
-import MainRoutes from './routes/MainRoutes'
 import movieData from './context'
+import Loader from './components/Loader/Loader'
+
+const MainRoutes = lazy(() => import("./routes/MainRoutes"))
 
 function App() {
 // import.meta.env.VITE_API_KEY
@@ -17,7 +19,9 @@ const [theme, setTheme] = useState("dark");
         <movieData.Provider value={{data, setData, theme, setTheme}}>
           <Header />
           <div id="lineBreak"> </div>
+          <Suspense fallback={<Loader />}>  
           <MainRoutes /> 
+          </Suspense>
         </movieData.Provider>
     </div>
     </>

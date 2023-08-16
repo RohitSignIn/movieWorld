@@ -9,24 +9,24 @@ const Home = () => {
   const {data} = useContext(movieData)
   
   useEffect(() => {
-    searchData("naruto")
+    searchData("naruto");
   }, [])
 
   return (
     <section id="home">
       <div id="cards">
-        {data.length && data.map((movie) => {
-        return (
-          <Card 
+        {data && data.map((movie) => {
+          return (
+            <Card 
             key={movie.imdbID} 
             id={movie.imdbID} 
             title={movie.Title} 
             poster={movie.Poster}
             year = {movie.Year} 
-          />
-        )
-        }
-        )}
+            />
+            )
+          }
+          )}
       </div>
     </section>
   )

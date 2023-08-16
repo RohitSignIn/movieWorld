@@ -1,10 +1,13 @@
+#home{
+    padding: 1rem;
+}
+
 #cards{
-    margin-left: 1rem;
     width: 100%;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
 }
 
 .loader{
