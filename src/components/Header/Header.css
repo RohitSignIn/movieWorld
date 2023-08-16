@@ -113,6 +113,10 @@ nav > div:nth-child(2) > input{
     cursor: pointer;
 }
 
+#hamburger svg{
+    fill: var(--fontColor);
+}
+
 .mob-device{
     width: 4rem;
 }
