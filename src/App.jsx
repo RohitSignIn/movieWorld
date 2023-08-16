@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import movieData from './context'
 import Loader from './components/Loader/Loader'
+import Footer from './components/Footer/Footer'
 
 const MainRoutes = lazy(() => import("./routes/MainRoutes"))
 
@@ -22,6 +23,7 @@ const [theme, setTheme] = useState("dark");
           <Suspense fallback={<Loader />}>  
           <MainRoutes /> 
           </Suspense>
+          <Footer />
         </movieData.Provider>
     </div>
     </>

@@ -5,21 +5,22 @@ import useSearch from '../../hooks/useSearch';
 import useFetchAutoComp from '../../hooks/useFetchAutoComp';
 import movieData from '../../context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import './Header.css';
+import { faMoon, faSun, faHouse } from '@fortawesome/free-solid-svg-icons'
 import useTheme from '../../hooks/useTheme';
+import './Header.css';
 
 const Header = () => {
 
   const [search, setSearch] = useState('');
   const [searchData, setSearchData] = useState([]);
+  const [menuPopUp, setMenuPopUp] = useState(false); 
   const {theme} = useContext(movieData)
 
   const navigate = useNavigate();
   const searchDataHome = useSearch();
   useFetchAutoComp(search, setSearchData)
 
-  const styleList = useRef(null);
+  const SearchAutoComp = useRef(null);
 
   function inputBlur(id){
     navigate(`/movie/${id}`)
@@ -34,14 +35,14 @@ const Header = () => {
   return (    
     <>
       <nav>
-        <div>
-          <h1><Link to="/">MovieWorld</Link></h1>
+        <div id='logo'>
+          <h1><Link to='/'>MovieWorld</Link></h1>
         </div>
         <div>
           <input type='text' 
             placeholder='Search Movie...' 
-            onFocus={() => styleList.current.style.display = 'block'}
-            onBlur={() => styleList.current.style.display = 'none'}
+            onFocus={() => SearchAutoComp.current.style.display = 'block'}
+            onBlur={() => SearchAutoComp.current.style.display = 'none'}
             onChange={useDebounce((e) => setSearch(e.target.value))}
             onKeyDown={(e) => {
               if(e.key === 'Enter'){
@@ -50,7 +51,7 @@ const Header = () => {
             }}
             />
 
-            <div ref={styleList} id='search_list'>
+            <div ref={SearchAutoComp} id='search_list'>
               <ul>
                 {
                   searchData && searchData.map(data => {
@@ -63,9 +64,28 @@ const Header = () => {
             </div>
 
         </div>
-        <div>
+        <div className='lg-device'>
           <div id='theme-mode' onClick={() => Theme(true)}>
-            <FontAwesomeIcon icon={theme=="dark" ? faSun : faMoon} />
+            <FontAwesomeIcon icon={theme=='dark' ? faSun : faMoon} />
+          </div>
+        </div>
+        <div className='mob-device'>
+          <div>
+            <div id='hamburger'
+            onClick={() => setMenuPopUp(!menuPopUp)}
+            >
+              <svg style={{fill: '#fff'}} xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 50 50' width='30px' height='30px'><path d='M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z'/></svg>
+            </div>
+            {menuPopUp && <div id='menu'>
+              <div id='theme-mode' onClick={() => navigate('/')}>
+                <FontAwesomeIcon icon={faHouse} />
+                <p>Home</p>
+              </div>
+              <div id='theme-mode' onClick={() => Theme(true)}>
+                <FontAwesomeIcon icon={theme=='dark' ? faSun : faMoon} />
+                <p>{theme}Mode</p>
+              </div>
+            </div>}
           </div>
         </div>
       </nav>

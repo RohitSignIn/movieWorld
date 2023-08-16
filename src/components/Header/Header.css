@@ -1,6 +1,5 @@
 nav::after,
 #search_list::after {
-    background-color: var(--bgColor);
 backdrop-filter: blur(12px);
 content: "";
 display: block;
@@ -12,7 +11,12 @@ top: 0;
 z-index: -1;
 }
 
+.mob-device{
+    display: none;
+}
+
 nav{
+    background-color: var(--bgColor);
     position: fixed;
     top: 0;
     width: 100%;
@@ -60,21 +64,20 @@ nav > div:nth-child(2) > input{
     border-bottom: 1px solid var(--fontColor);
 }
 
-nav > div:nth-child(3){
+.lg-device{
     flex: 1;
     display: flex;
     justify-content: right;
     align-items: center;
 }
 
-nav > div:nth-child(3) > div{
+.lg-device > div{
     font-size: 1.5rem;
 }
 
 #search_list{
+    background-color: var(--MainbgColor);
     position: absolute;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    /* background-attachment: fixed; */
     display: none;
     top: 55px;
     width: 100%;
@@ -82,7 +85,11 @@ nav > div:nth-child(3) > div{
     border-radius: 5px;
     backdrop-filter: blur(7px);
     padding: 1rem 2rem;
-    overflow-y: hidden;
+    overflow-y: auto;
+}
+
+#search_list::-webkit-scrollbar{
+    display: none;
 }
 
 #search_list > ul > li{
@@ -100,4 +107,67 @@ nav > div:nth-child(3) > div{
 
 #theme-mode{
     cursor: pointer;
+}
+
+#hamburger{
+    cursor: pointer;
+}
+
+.mob-device{
+    width: 4rem;
+}
+
+.mob-device > div{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: end;
+}
+
+#menu{
+    position: absolute; 
+    top: 40px;
+    right: -10px;
+    padding: 0.8rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: var(--MainbgColor);
+}
+
+#menu > div{
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+}
+
+#menu > div > p{
+    margin-left: 0.4rem;
+}
+
+#menu > div{
+    width: 100%;
+    padding: 0.6rem 1rem;
+    transition: background-color 0.3s;
+}
+
+#menu > div:hover{
+    background-color: var(--bgColor);
+}
+
+
+@media only screen and (max-width: 500px){
+    #logo{
+        display: none;
+    }
+    .lg-device{
+        display: none;
+    }
+    .mob-device{
+        display: block;
+    }
+    nav{
+        gap: 0.3rem;
+        padding: 0.7rem;
+    }
 }

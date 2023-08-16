@@ -1,9 +1,10 @@
 #top_container{
-    background: url("https://images2.alphacoders.com/724/724132.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background: url("https://images2.alphacoders.com/724/724132.jpg"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover;
     background-attachment: fixed;
-    background-position: top !important;
+    background-position: top !important; */
+    background-color: var(--MainbgColor);
     width: 100%;
     min-height: 100vh;
 }

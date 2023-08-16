@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,800&family=Rubik:wght@300;400;500;600;800&display=swap');
 
 :root{
+  --MainbgColor: #333333;
   --bgColor: rgba(0, 0, 0, 0.6);
   --bgColor2: rgba(2, 2, 2, 0.6);
-  --fontColor: #fff;
+  --fontColor: #FFFFFF;
   --fontColor2: grey;
   --card_bg: rgba(15, 16, 20, 0.7);;
   --card-duration-font: rgb(139 148 173);
 }
 
 [data-theme="light"] {
+  --MainbgColor: #cbcbcb;
   --bgColor: rgba(255, 255, 255, 0.8);
   --bgColor2: rgba(250, 250, 250, 0.7);
   --fontColor: #2d2d2d;

@@ -1,0 +1,23 @@
+footer{
+    margin-top: 1rem;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bgColor);
+}
+
+footer > p{
+    padding: 1rem;
+    color: var(--fontColor);
+}
+
+footer > div > span {
+    margin-right: 1rem;
+}
+
+footer > div > span > svg{
+    cursor: pointer;
+    fill: var(--fontColor);
+}
