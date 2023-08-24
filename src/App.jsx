@@ -20,9 +20,13 @@ const [theme, setTheme] = useState("dark");
         <movieData.Provider value={{data, setData, theme, setTheme}}>
           <Header />
           <div id="lineBreak"> </div>
+          <div style={{
+            minHeight: "100vh"
+          }}>
           <Suspense fallback={<Loader />}>  
-          <MainRoutes /> 
+            <MainRoutes /> 
           </Suspense>
+          </div>
           <Footer />
         </movieData.Provider>
     </div>

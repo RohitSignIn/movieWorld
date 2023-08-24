@@ -1,6 +1,8 @@
 .loader{
-    display: flex;
+    position: fixed;
+    top: 40%;
+    left: 50%;
     width: 100%;
     height: 100vh;
-    justify-content: center;
+    transform: translate("-50%", "-40%");
 }

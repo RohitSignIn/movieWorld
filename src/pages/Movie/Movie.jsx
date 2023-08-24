@@ -23,7 +23,12 @@ const Movie = () => {
       data && <div id="mov_card_con">
         <div>
         <div id="movie_card" title={data.Title} >
-        <LazyLoadImage src={data.Poster} alt={data.Title} effect="blur" />
+          <LazyLoadImage 
+          src={data.Poster} 
+          alt={data.Title} 
+          effect="opacity" 
+          width={"300px"} 
+          height={"380px"} />
             <div className="card_detail">
                 <p className="card_h">{data.Title.length > 24 ? `${data.Title.substring(0, 24)}...` : data.Title}</p>
                 <p className="card_t">{data.Runtime}</p>
