@@ -9,7 +9,7 @@ const Home = () => {
   const {data} = useContext(movieData)
   
   useEffect(() => {
-    searchData("naruto");
+    searchData("harry");
   }, [])
 
   return (
