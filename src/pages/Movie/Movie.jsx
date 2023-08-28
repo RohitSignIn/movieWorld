@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import useSearchById from "../../hooks/useSearchById";
 import Loader from "../../components/Loader/Loader";
 import '@smastrom/react-rating/style.css';
 import RatingComp from "../../components/Rating/RatingComp";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./style/style.css"
+const Image = lazy(() => import("../../components/Image"));
 
 const Movie = () => {
 
@@ -23,12 +24,9 @@ const Movie = () => {
       data && <div id="mov_card_con">
         <div>
         <div id="movie_card" title={data.Title} >
-          <LazyLoadImage 
-          src={data.Poster} 
-          alt={data.Title} 
-          effect="opacity" 
-          width={"300px"} 
-          height={"380px"} />
+          <Suspense fallback={<h1 style={{color: "#fff"}}>Hello</h1>}>
+            <Image Poster={data.Poster} Title={data.Title} />
+          </Suspense>
             <div className="card_detail">
                 <p className="card_h">{data.Title.length > 24 ? `${data.Title.substring(0, 24)}...` : data.Title}</p>
                 <p className="card_t">{data.Runtime}</p>

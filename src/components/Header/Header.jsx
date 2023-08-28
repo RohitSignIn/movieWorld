@@ -11,14 +11,15 @@ import './Header.css';
 
 const Header = () => {
 
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
   const [searchData, setSearchData] = useState([]);
   const [menuPopUp, setMenuPopUp] = useState(false); 
   const {theme} = useContext(movieData)
 
   const navigate = useNavigate();
   const searchDataHome = useSearch();
-  useFetchAutoComp(search, setSearchData)
+  const FetchAutoComp = useFetchAutoComp();
+  
 
   const SearchAutoComp = useRef(null);
 
@@ -43,10 +44,10 @@ const Header = () => {
             placeholder='Search Movie...' 
             onFocus={() => SearchAutoComp.current.style.display = 'block'}
             onBlur={() => SearchAutoComp.current.style.display = 'none'}
-            onChange={useDebounce((e) => setSearch(e.target.value))}
+            onChange={useDebounce((e) => FetchAutoComp(e.target.value, setSearchData))}
             onKeyDown={(e) => {
               if(e.key === 'Enter'){
-                searchDataHome(search)
+                searchDataHome(e.target.value)
               }
             }}
             />
